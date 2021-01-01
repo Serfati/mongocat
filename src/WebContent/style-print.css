@@ -1,0 +1,9 @@
+/*--------------------------------------------------------------------------------------------- 
+
+	Print Css Stylesheet
+
+---------------------------------------------------------------------------------------------*/
+
+#wrap{ margin:0; border:none; -moz-box-shadow:none; -webkit-box-shadow:none; box-shadow:none; }
+.no-print, .pdf, #footer, #pre-footer, .inner-page-title-container img, .pagination, #search, #dropdown-menu { display:none; }
+.hr{ border-color:#fff; }
