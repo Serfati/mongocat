@@ -16,12 +16,12 @@
 	
 <link rel="alternate" type="application/rss+xml" title="RecSys &raquo; Feed" href="http://recsys.acm.org/feed/" />
 <link rel="alternate" type="application/rss+xml" title="RecSys &raquo; Comments Feed" href="http://recsys.acm.org/comments/feed/" />
-<link rel='stylesheet' id='theme-style-css'  href='style.css?ver=4.0' type='text/css' media='all' />
-<link rel='stylesheet' id='theme-style-print-css'  href='style-print.css?ver=1.0' type='text/css' media='print' />
+<link rel='stylesheet' id='theme-style-css' href='style.css?ver=4.0' type='text/css' media='all' />
+<link rel='stylesheet' id='theme-style-print-css' href='style-print.css?ver=1.0' type='text/css' media='print' />
 <link rel='stylesheet' id='webfonts-opensans-css'  href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C700&#038;ver=4.0' type='text/css' media='all' />
 <link rel='stylesheet' id='webfonts-droidsans-css'  href='https://fonts.googleapis.com/css?family=Droid+Sans%3A400%2C700&#038;ver=4.0' type='text/css' media='all' />
 
-<link rel='stylesheet' id='sccss_style-css'  href='style-button.css' type='text/css' media='all' />
+<link rel='stylesheet' id='sccss_style-css' href='style-button.css' type='text/css' media='all' />
 
 <link rel='shortlink' href='http://recsys.acm.org/?p=7359' />
 
@@ -31,7 +31,7 @@
 
 <style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 <script src="js/jquery-1.7.1.min.js"></script>
-<script src="js/history.js"></script>
+<script src="js/items.js"></script>
 
 </head>
 <body class="page page-id-7359 page-parent page-template-default"> 
@@ -70,8 +70,8 @@
 
 			<ul id="dropdown-menu" class="fixed">
 				<li id="menu-item-14" ><a href="index.html">Home</a></li>
-				<li id="menu-item-7389" ><a href="items.html">Items</a></li>
-				<li id="menu-item-2248"  class="current"><a href="history.html">Logs</a></li>
+				<li id="menu-item-7389" class="current" ><a href="items.html">Items</a></li>
+				<li id="menu-item-2248" ><a href="history.html">Logs</a></li>
 			</ul><!-- end #dropdown-menu -->
 		</div>
 		</div>		
@@ -87,57 +87,31 @@
 			<img src="http://in.bgu.ac.il/TopBanners/home1.png" width="1000" alt="" />
 		</div><div class="row fixed">
 		
-<div class="col580" style="width: 800px;">
-	<h1>Log Page</h1>
+<div class="col580" style="width: 560px;">
+	<h1>Items Page</h1>
 	<p>Welcom to the final project page, implement me please :)</p> 
+	
+	
 	<ul>
 		<li style="font-weight: bold;">Start of the Project 04 Jan 2017 </li>
 	</ul>
-	<p>
-	<form id="logForm">
-		
-			<input type="text" required="required" class="uname" name="uname" id="uname" style="height: 2em; border-radius: 5px; width: 145px; font-size: 15px;margin-right: 3px;" placeholder="User Name"/>
-			<input type="text" required="required" class="title" name="title" id="title" style="height: 2em; border-radius: 5px; width: 145px; font-size: 15px;margin-right: 3px;" placeholder="Title"/>
-			<input type ="submit" class="button" id="addevent" value="Add event" />
 	
-	</form>
-	</p>
-	<hr />
-	<p>
-	<form id="similarityForm">
-		
-			<input type="text" required="required" class="title1" name="title1" id="title1" style="height: 2em; border-radius: 5px; width: 145px; font-size: 15px;margin-right: 3px;" placeholder="First Title"/>
-			<input type="text" required="required" class="title2" name="title2" id="title2" style="height: 2em; border-radius: 5px; width: 145px; font-size: 15px;margin-right: 3px;" placeholder="Second Title"/>
-			<input type ="submit" class="button" id="checkSimilarity" value="Get Similarity" />
-	
-	</form>
-	</p>
-	<hr />
-	<form id="historyForm">
-		
-			<input type="text" required="required" class="entity" name="entity" id="entity" style="height: 2em; border-radius: 5px; width: 145px; font-size: 15px;margin-right: 3px;" placeholder="User Name/Title"/>
-			<input type="radio" name="type" value="user" checked>User
-			<input type="radio" name="type" value="item">Item
-			<input type ="submit" class="button" id="addevent" value="Get History" />
-	
-	</form>
-	
-	
-	
-	
-	<h1>Log</h1>
+	<h1>Stored Items</h1>
+	Number of items to show 
+	<input type="number" id = "topn" min="0" max="500" value="5" />
+	<input type="button" id="topnc" value="Submit"/>
 	<table>
 		<thead style="display: table-caption;">
 			<tr>
-				<th colspan=4>History</th>
+				<th colspan=4>Items</th>
 			</tr>
 			<tr>
 				<th>#</th>
-				<th style="padding-left: 0em;">User Name/Title</th>
-				<th>Timestamp</th>
+				<th style="padding-left: 0em;">Title</th>
+				<th>Prod Year</th>
 			</tr>
 		</thead>
-		<tbody style="max-height: 300px; overflow-y: auto;display: block; min-width: 300px;" id = "scoret">
+		<tbody style="max-height: 300px; overflow-y: auto;display: block; min-width: 200px;" id = "scoret">
 			
 			
 			
@@ -147,7 +121,28 @@
 
 </div>
 
-
+<div class="col280 last no-print" style="width: 300px;">
+<div id="nav_menu-19" class="widget list-nav widget_nav_menu" style="width: 330px;">
+<h5 style="margin: .5em 0 .5em 1.5em;font-size: 18px;">Fill Items From Oracle</h5>
+<div class="menu-recsys-2014-navigation-container"id="regContainer"  style="margin: .5em 0 .5em 2em;">
+<form id="regForm" action="items/fill_media_items" method="get" >
+	<input type="submit" class="login button" value="Copy" />
+</form>
+</div>
+<br/>
+<hr/>
+<h5 style="margin: .5em 0 .5em 1.5em;font-size: 18px;">Fill Items From URI</h5>
+<div class="menu-recsys-2014-navigation-container" id="logContainer" style="margin: .5em 0 .5em 2em;">
+<form id="logForm" action="items/fill_media_items_from_url" method="post" >
+	
+	<input type="url" required="required" name="url" id="url" style="height: 2em; border-radius: 5px; width: 300px; font-size: 18px;border: 1px solid #e1e1e1;" placeholder="URL"/>	
+	
+	<br/><br/>
+	<input type="submit" class="login button" value="Submit" />
+</form>
+</div>
+</div>
+</div>
 
 </div>	</div>	
 	
@@ -197,7 +192,7 @@
     
 </div>
 <div id="loading-div2" class="ui-corner-all" >
-      <h2 style="color:white;font-weight:normal;" id="textdiv">Your data have been uploaded.</h2>
+      <h2 style="color:white;font-weight:normal;">Your data have been uploaded.</h2>
       <br/>
       <input id="closegrey"  type="button" class="login button"  value="OK"/>
     </div>
